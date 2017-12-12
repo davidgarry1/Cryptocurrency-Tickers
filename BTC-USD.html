@@ -1,0 +1,16 @@
+<html>
+   <!-- This was created in about 10 minutes to get a simple ticker working. Apologies for the lack of pretty code -->
+   <head>
+      <title>BTC-USD</title>
+      <meta content="BTC-USD Live Ticker"property=og:description>
+      <link href=http://www-scf.usc.edu/~dgarry/btc.png rel="shortcut icon">
+      <style>html{height:100%}body{position:absolute;top:0;bottom:0;right:0;left:0}.parent{display:table;height:100%;width:100%;text-align:center}.price{font-family:"Courier New",Courier,monospace;font-size:5em;display:table-cell;vertical-align:middle}</style>
+   </head>
+   <body>
+      <img comment="for preview"height=0px src=http://www-scf.usc.edu/~dgarry/btc.png width=0px>
+      <div class=parent>
+         <div class=price id=price title="Price of 1 BTC in USD, according to GDAX API. Updated every 800ms."></div>
+      </div>
+      <script src=https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js></script><script>function updatePrice(){$.getJSON("https://api.gdax.com/products/BTC-USD/ticker",function(t){var r=formatter.format(t.price);$("#price").html(r),document.title=r+" BTC-USD"})}var formatter=new Intl.NumberFormat("en-US",{style:"currency",currency:"USD",minimumFractionDigits:2});setInterval(function(){updatePrice()},800)</script>
+   </body>
+</html>
